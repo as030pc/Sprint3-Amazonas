@@ -1,12 +1,12 @@
 import React from 'react'
 
-
-const AppRouter = () => {
+const Producto = () => {
     return (
         <div>
+            Tarjeta para los productos
             
         </div>
     )
 }
 
-export default AppRouter
+export default Producto
