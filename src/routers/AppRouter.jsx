@@ -10,7 +10,7 @@ import { HashRouter as Router,
 import PaginaRegistro from '../pages/PaginaRegistro'
 import PaginaLogin from '../pages/PaginaLogin'
 import Carrito from '../pages/Carrito'
-import { PaginaNoEncontrada } from '../pages/PaginaNoEncontrada'
+// import { PaginaNoEncontrada } from '../pages/PaginaNoEncontrada'
 import PaginaPrincipal from '../pages/PaginaPrincipal'
 import Navbar from '../components/Navbar'
 import { PrivateRouter } from './PrivateRouter'
