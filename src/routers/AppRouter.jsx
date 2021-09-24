@@ -14,6 +14,7 @@ import Carrito from '../pages/Carrito'
 import PaginaPrincipal from '../pages/PaginaPrincipal'
 import Navbar from '../components/Navbar'
 import { PrivateRouter } from './PrivateRouter'
+import { PublicRouter } from './PublicRouter'
 
 
 
@@ -25,16 +26,16 @@ const AppRouter = () => {
             <Navbar/>
                 <Switch>
 
-                <Route exact path = "/" component = {PaginaPrincipal}/>
+                {/* <Route exact path = "/" component = {PaginaPrincipal}/> */}
                     {/* <Route exact path = "*" component = {PaginaNoEncontrada}/>  */}
 
-                    <Route exact path = "/login" component = {PaginaLogin}/>
-                    <Route exact path = "/registro" component = {PaginaRegistro}/>
+                    <PublicRouter exact path = "/login" component = {PaginaLogin}/>
+                    <PublicRouter exact path = "/registro" component = {PaginaRegistro}/>
                     
                    
                    
                     <PrivateRouter exact path = "/carrito" component = {Carrito}/>
-                   
+                    <PrivateRouter exact path = "/home" component = {PaginaPrincipal}/>
                    
                 </Switch>
             </Router>

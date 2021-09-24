@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect, Route, useLocation } from 'react-router'
 import { useAuth } from '../auth/useAuth'
 
-export const PrivateRouter = ({ component: Component, ...rest }) => {
+export const PublicRouter = ({ component: Component, ...rest }) => {
 
     //{...props} para que mande todas las propiedades.
 
@@ -11,13 +11,13 @@ export const PrivateRouter = ({ component: Component, ...rest }) => {
     // const user = null
 
     const {user, login, logout} = useAuth()
-    const location = useLocation()
+
     return (
         <div>
             <Route {...rest}>
                 
                 {
-                    user ? <Component /> : <Redirect to={{pathname:"/login", state:{from:location}}} />
+                    !user ? <Component /> : <Redirect to="/home" />
                 }
 
 
