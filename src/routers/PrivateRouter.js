@@ -12,6 +12,7 @@ export const PrivateRouter = ({ component: Component, ...rest }) => {
 
     const {user, login, logout} = useAuth()
     const location = useLocation()
+    
     return (
         <div>
             <Route {...rest}>
