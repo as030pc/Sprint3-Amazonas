@@ -5,7 +5,7 @@ import { Form, Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {useForm} from "../hooks/useForm"
 import { useDispatch } from 'react-redux';
-import { actionLogin, actionGoogle } from '../actions/actionLogin';
+import { actionLogin, actionGoogle, loginEmailPassword } from '../actions/actionLogin';
 
 
 
@@ -23,7 +23,8 @@ const PaginaLogin = () => {
         auth.login(); //useContext
         history.push(previousObjectURL) // añade el resto de direccion para que vaya a carrito
         e.preventDefault()
-        dispatch(actionLogin(email, password)) //disparo de la accion de actionLogin
+        dispatch(loginEmailPassword(email, password))
+        // dispatch(actionLogin(email, password)) //disparo de la accion de actionLogin
     }
 
 
