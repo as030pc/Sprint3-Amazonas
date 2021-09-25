@@ -17,11 +17,8 @@ const PaginaLogin = () => {
     const location = useLocation()
     const previousObjectURL = location.state?.from
     const auth = useAuth()
-
-
-
+    //IN
     const dispatch = useDispatch()
-
     const handleLogin = (e) => {
         auth.login(); //useContext
         history.push(previousObjectURL) // añade el resto de direccion para que vaya a carrito
@@ -37,18 +34,9 @@ const PaginaLogin = () => {
     })
      //Desesctructuracion de los values
     const {email, password} = values
-
     const handleGoogle = () => {
         dispatch(actionGoogle())   
     }
-
-    
-    
-    
-    
-    
-    
-    
     return (
         <>
   
