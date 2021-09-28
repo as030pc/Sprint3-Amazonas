@@ -12,7 +12,7 @@ export const loginEmailPassword = (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
     .then(({user})=> {
         dispatch(
-            actionLogin(user.uid, email, password)
+            loginSincronico(user.uid, email, password)
         )
         alert('Bienvenido')
     })
@@ -30,7 +30,7 @@ export const actionGoogle = ()=> {
         const auth = getAuth()
         signInWithPopup(auth, google) // Esta es una promesa que recibe dos parametros, auth: instanci de Auth
         .then(({user})=>{
-        dispatch(actionLogin(user.uid,user.displayName));
+        dispatch(loginSincronico(user.uid,user.displayName));
 
         })
         .catch(error=>console.log(error))
@@ -38,7 +38,7 @@ export const actionGoogle = ()=> {
     }
 }
 
-export const actionLogin = (id, displayname) => {
+export const loginSincronico = (id, displayname) => {
     return {
         type: types.login,
         payload:{
