@@ -1,5 +1,5 @@
 import {types} from "../types/types"
-import { getAuth, signInWithEmailAndPassword, signInWithPopup } from "@firebase/auth"
+import { getAuth, signInWithEmailAndPassword, signInWithPopup, signOut } from "@firebase/auth"
 import { google } from "../firebase/firebaseConfig"
 
 //accion asincronica
@@ -49,3 +49,19 @@ export const loginSincronico = (id, displayname) => {
         }
     }
 }
+
+
+export const startLogout = () => {
+    
+    return async (dispatch) => {
+        const auth =getAuth()
+        await signOut(auth)
+        //funcion sincronica
+        dispatch(logout())
+    }
+
+}
+
+export const logout = () => ({
+    type:types.logout
+})

@@ -1,6 +1,6 @@
 import React from 'react'
-import { useHistory, useLocation } from 'react-router'
-import { useAuth } from '../auth/useAuth'
+// import { useHistory, useLocation } from 'react-router'
+// import { useAuth } from '../auth/useAuth'
 import { Form, Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {useForm} from "../hooks/useForm"
@@ -13,15 +13,15 @@ import {actionGoogle, loginEmailPassword } from '../actions/actionLogin';
 const PaginaLogin = () => {
 
     //Uso de useContext para el control de rutas publicas y privadas
-    const history = useHistory() 
-    const location = useLocation()
-    const previousObjectURL = location.state?.from
-    const auth = useAuth()
+    // const history = useHistory() 
+    // const location = useLocation()
+    // const previousObjectURL = location.state?.from
+    // const auth = useAuth()
     //IN
     const dispatch = useDispatch()
     const handleLogin = (e) => {
-        auth.login(); //useContext
-        history.push(previousObjectURL) // añade el resto de direccion para que vaya a carrito
+        // auth.login(); //useContext
+        // history.push(previousObjectURL) // añade el resto de direccion para que vaya a carrito
         e.preventDefault()
         dispatch(loginEmailPassword(email, password))
         // dispatch(actionLogin(email, password)) //disparo de la accion de actionLogin
@@ -85,7 +85,7 @@ const PaginaLogin = () => {
                     </Container>
                 </Container>
             </Container>
-            <Link to="/registro">Registrarse</Link>
+            <Link to="/auth/registro">Registrarse</Link>
 
         </Form>
         
