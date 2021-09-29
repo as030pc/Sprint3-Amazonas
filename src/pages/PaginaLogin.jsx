@@ -5,7 +5,7 @@ import { Form, Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import {useForm} from "../hooks/useForm"
 import { useDispatch } from 'react-redux';
-import {actionGoogle, loginEmailPassword } from '../actions/actionLogin';
+import {actionGoogle, loginEmailPassword, actionFacebook } from '../actions/actionLogin';
 
 
 
@@ -37,6 +37,11 @@ const PaginaLogin = () => {
     const {email, password} = values
     const handleGoogle = () => {
         dispatch(actionGoogle())   
+    }
+
+   
+    const handleFacebook = () => {
+        dispatch(actionFacebook())
     }
     return (
         <>
@@ -77,11 +82,14 @@ const PaginaLogin = () => {
             <Container className="auth__social-networks">
                 <Container
                     className="google-btn"
-                    onClick= {handleGoogle}
+                    
 
                 >
-                    <Container className="google-icon-wrapper"  >
+                    <Container className="google-icon-wrapper" onClick= {handleGoogle} >
                         <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
+                    </Container>
+                    <Container className="google-icon-wrapper" onClick= {handleFacebook} >
+                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="google button" width = "50px"  height = "50px" />
                     </Container>
                 </Container>
             </Container>
