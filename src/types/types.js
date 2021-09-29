@@ -14,3 +14,9 @@ export const types = {
     taksLogoutClean:'[Taks] Logout taks'
 }
 
+
+export const typesProducto = {
+    register: 'register',
+    list: 'list',
+    delete: 'delete'
+}

@@ -20,6 +20,9 @@ import { getAuth, onAuthStateChanged  } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { loginSincronico } from '../actions/actionLogin';
 import Crud from '../components/Crud';
+import PaginaRegistro from '../pages/PaginaRegistro';
+import PaginaLogin from '../pages/PaginaLogin';
+import DashBoardRouter from './DashBoardRouter';
 
 
 const AppRouter3 = () => {
@@ -58,7 +61,7 @@ const AppRouter3 = () => {
             
             <Switch>
                 
-                <PublicRoute
+                {/* <PublicRoute
                     path="/auth"
                     component={AuthRouter}
                     isAuthenticated={isLoggedIn}
@@ -80,8 +83,28 @@ const AppRouter3 = () => {
                  path="/"
                  component={PaginaPrincipal}
                  isAuthenticated={isLoggedIn}
-                />
-                <Redirect to="/auth/login" />
+                /> */}
+
+        <PublicRoute
+            exact
+            path="/login"
+            component={PaginaLogin}
+            isAuthenticated={ isLoggedIn }
+          />
+
+          <PublicRoute
+            exact
+            path="/registro"
+            component={PaginaRegistro} 
+            isAuthenticated={ isLoggedIn }
+            />
+
+          <PrivateRoute
+            path="/"
+            component={DashBoardRouter}
+           isAuthenticated={ isLoggedIn }
+          />
+        
             </Switch>
         </Router>
     )
