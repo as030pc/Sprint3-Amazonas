@@ -1,8 +1,8 @@
 export const fileUpload = async (file) =>{
 
-    const cloudUrl = 'https://api.cloudinary.com/v1_1/duzf4vfki/upload';
+    const cloudUrl = 'https://api.cloudinary.com/v1_1/dobboq5dt/upload';
     const formData = new FormData();
-    formData.append('upload_preset','heroes-app');
+    formData.append('upload_preset','Amazonas');
     formData.append('file',file);
     
     try{

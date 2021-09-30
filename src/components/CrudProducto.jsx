@@ -1,12 +1,13 @@
-import React  from 'react';
+import React, {useEffect}  from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useForm } from '../hooks/useForm';
-import { fileUpload } from '../helpers/FileUpload';
-import { agregarProducto } from '../actions/actionProducto';
+import { fileUpload } from '../helpers/fileUpload';
+import { agregarAsincrono, agregarProducto, listAsincronica } from '../actions/actionProducto';
+import { ListarProductos } from './ListarProducto';
 ;
 
-export const Estudiantes = ({ history }) => {
+export const CrudProducto = () => {
 
     const dispatch = useDispatch();
 
@@ -19,14 +20,11 @@ export const Estudiantes = ({ history }) => {
 
     let { nombre, descripcion, fecha, imagen } = values;
 
-    const handleRegistro = e => {
+    const handleRegistro = (e) => {
         e.preventDefault();
-        dispatch(agregarProducto(nombre, descripcion, fecha,imagen));
+        dispatch(agregarAsincrono(nombre, descripcion, fecha,imagen));
         reset();
     }
-
-
-    
 
     const handlePictureClick = () => {
          document.querySelector('#fileSelector').click();
@@ -44,48 +42,49 @@ export const Estudiantes = ({ history }) => {
         })
     }
 
-    // useEffect(() => {
-    //     dispatch();
-    //   }, [dispatch])
+    useEffect(() => {
+        dispatch(listAsincronica());
+      }, [])
 
     return (
-        <div>
+        <div className = "crud-container">
 
             <form onSubmit={handleRegistro}>
-                <h1>Estudiantes</h1>
+                <h1> Zona de gestión de productos </h1>
                 <div className="form-group">
                     <div className="form-group col-md-4">
-                        <label htmlFor="documento">Documento</label>
+                        <label htmlFor="documento">Nombre de producto </label>
                         <input 
                         className="form-control" 
                         type="text" 
                         name="nombre" 
-                        id="documento"
+                        id="nombre"
                         value={nombre}
-                        onChange={handleInputChange} />
+                        onChange={handleInputChange} 
+                        required
+                        />
                     </div>
 
                     <div className="form-group col-md-4">
-                        <label htmlFor="nombres"> Descripcion </label>
+                        <label htmlFor="nombres"> Descripción </label>
                         <input 
                         className="form-control" 
                         type="text" 
                         name="descripcion" 
-                        id="nombres"
+                        id="descripcion"
                         value={descripcion}
-                        onChange={handleInputChange} />
+                        onChange={handleInputChange}
+                        required
+                         />
                     </div>
 
-
-                   
-
                     <div className="form-group col-md-4">
-                        <label htmlFor="direccion"> Fecha </label>
+                        <label htmlFor="direccion"> Fecha de ingreso del producto </label>
                         <input 
                         className="form-control" 
-                        type="text" 
+                        type="date" 
                         name="fecha" 
-                        id="direccion" 
+                        id="fecha" 
                         value={fecha}
                         onChange={handleInputChange}/>
                     </div>
@@ -100,8 +99,8 @@ export const Estudiantes = ({ history }) => {
                             onChange={handleFileChanged}
                         />
 
-                        <button className="btn btn-success"
-                           onClick={handlePictureClick} type="button">Imagen</button>
+                        <button className="btn btn-secondary"
+                           onClick={handlePictureClick} type="button"> Subir imagen de producto </button>
                     </div>
 
                     <div>
@@ -109,13 +108,11 @@ export const Estudiantes = ({ history }) => {
                             type="submit">Guardar</button>
                     </div>
 
-                    <div>
-                        {/* Se usa el type de tipo button para que no haga submit */}
-                      
-                    </div>
-
+                   
                 </div>
             </form>
+
+            <ListarProductos/>
             
         </div>
     )

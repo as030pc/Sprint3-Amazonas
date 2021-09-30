@@ -1,34 +1,35 @@
 import React from 'react'
 import { Route, Redirect, Switch } from 'react-router'
-import Crud from '../components/Crud'
+// import Crud from '../components/Crud'
+import { CrudProducto } from "../components/CrudProducto"
 import Carrito from '../pages/Carrito'
 import PaginaPrincipal from '../pages/PaginaPrincipal'
 
 const DashBoardRouter = () => {
     return (
-        <div>
-            <Switch> 
+
+        <Switch>
             <Route
                 exact
-                 path="/crud"
-                 component={Crud}
-                 
-                />
-                <Route
+                path="/crud"
+                component={CrudProducto}
+
+            />
+            <Route
                 exact
-                 path="/carrito"
-                 component={Carrito}
-                 
-                />
-                <Route
+                path="/carrito"
+                component={Carrito}
+
+            />
+            <Route
                 exact
-                 path="/"
-                 component={PaginaPrincipal}
-                 
-                />
-                <Redirect to="/" />
-                </Switch>
-        </div>
+                path="/"
+                component={PaginaPrincipal}
+
+            />
+            <Redirect to="/" />
+        </Switch>
+
     )
 }
 

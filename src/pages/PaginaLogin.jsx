@@ -48,7 +48,7 @@ const PaginaLogin = () => {
   
             
             <Form onSubmit ={handleLogin}>
-                <h1> Amazonas </h1>
+            <img alt ="logo Amazonas" src = "https://res.cloudinary.com/dobboq5dt/image/upload/v1632956691/Sprint%203-%20Amazonas/logo-amazon_mlu12o.png" />
                 <h3> Login </h3>
             
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -86,9 +86,11 @@ const PaginaLogin = () => {
 
                 >
                     <Container className="google-icon-wrapper" onClick= {handleGoogle} >
-                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
+                        <h1> Iniciar sesion con Google </h1>
+                        <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" width = "50px"  height = "50px" />
                     </Container>
                     <Container className="google-icon-wrapper" onClick= {handleFacebook} >
+                        <h1> Iniciar sesion con Facebook </h1>
                         <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="google button" width = "50px"  height = "50px" />
                     </Container>
                 </Container>

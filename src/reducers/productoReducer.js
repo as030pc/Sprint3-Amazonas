@@ -1,20 +1,24 @@
 import { typesProducto } from "../types/types";
 
 const initialState = {
-    estudiante:[]
+    productos:[]
 }
 
 
 export const productoReducer = (state = initialState, action) => {
-    switch (state) {
+    switch (action.type) {
         case typesProducto.register:
-            
-            return { estudiante: [action.payload]}
-        
-    
+            return { productos: [action.payload]}
+        case typesProducto.list:
+            return {
+                productos:[...action.payload]
+            }
         default:
             return state
+        
     }
 }
+
+
 
 

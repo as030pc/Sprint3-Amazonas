@@ -1,0 +1,15 @@
+.crud-container {
+   height: 100%;
+    background-color:bisque;
+    padding-left: 25%;
+    padding-top: 5%;
+    align-content: center;
+}
+
+.crud-container div {
+    margin-top:2%;
+}
+
+
+
+    
