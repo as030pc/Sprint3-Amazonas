@@ -4,34 +4,39 @@ import { Link } from "react-router-dom";
 import { useForm } from '../hooks/useForm';
 import { useDispatch } from 'react-redux';
 import { registerSincronico, registroAsincronico } from '../actions/actionRegister';
-
+import { useFormik } from 'formik';
+import * as Yup from 'yup'
 
 import styled from 'styled-components';
 
 
 
-const PaginaRegistro = () => {
-
-    const [formValues, handleInputChange] = useForm({
-        nombre:"Andres",
-        email:"andres.palma@udea.edu.co",
-        pass1:"123456",
-        pass2:"1223456"
-    })
-    const {nombre, email, pass1, pass2} = formValues;
-
-
+const PaginaRegistro2 = () => {
     const dispatch = useDispatch()
-    const handleRegistro = (e)=> {
-        e.preventDefault()
-        dispatch(registroAsincronico(email, pass1, nombre))
-        
-    }
+    const formik = useFormik({
+        initialValues: {
+            nombre:"",
+            email:"",
+            pass1:"",
+            pass2:""
+            
+        },
+        validationSchema:   Yup.object({
+            nombre:Yup.string().required(),
+            email:Yup.string().email().required(),
+            pass1:Yup.string().required().oneOf([Yup.ref("pass2")]),
+            pass2:Yup.string().required()
 
-    
+        }) ,
+        onSubmit:(data) => {
+            const {nombre, email, pass1} = data;
+            dispatch(registroAsincronico(email, pass1, nombre))
+        }
+    })
+
     return (
         <>
-         <Form id = "login-form" onSubmit = {handleRegistro}>
+         <Form id = "login-form" onSubmit = {formik.handleSubmit}>
          <img alt="logo Amazonas" src="https://res.cloudinary.com/dobboq5dt/image/upload/v1632956691/Sprint%203-%20Amazonas/logo-amazon_mlu12o.png" />
                 <br/>
                 <h3> Registrate en Amazonas </h3>
@@ -41,8 +46,8 @@ const PaginaRegistro = () => {
                         type="text"
                         placeholder="Enter name"
                         name="nombre"
-                        value = {nombre}
-                        onChange = {handleInputChange}
+
+                        onChange = {formik.handleChange}
                     />
                 </Form.Group>
 
@@ -52,8 +57,8 @@ const PaginaRegistro = () => {
                         type="email"
                         placeholder="email"
                         name="email"
-                        value = {email}
-                        onChange = {handleInputChange}
+                    
+                        onChange = {formik.handleChange}
                     />
                 </Form.Group>
 
@@ -63,8 +68,7 @@ const PaginaRegistro = () => {
                         type="password"
                         placeholder="Password"
                         name="pass1"
-                        value = {pass1}
-                        onChange = {handleInputChange}
+                        onChange = {formik.handleChange}
                     />
                 </Form.Group>
 
@@ -74,8 +78,7 @@ const PaginaRegistro = () => {
                         type="password"
                         placeholder="Password"
                         name="pass2"
-                        value = {pass2}
-                        onChange = {handleInputChange}
+                        onChange = {formik.handleChange}
                     />
                 </Form.Group>
 
@@ -93,4 +96,4 @@ const PaginaRegistro = () => {
     )
 }
 
-export default PaginaRegistro
+export default PaginaRegistro2

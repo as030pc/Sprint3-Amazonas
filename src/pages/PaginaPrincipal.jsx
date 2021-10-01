@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Formulario from '../components/Formulario'
 
 import Producto from '../components/Producto'
 
@@ -8,6 +9,7 @@ const PaginaPrincipal = () => {
     <div>
      
       <Producto/>
+      <Formulario/>
     </div>
   )
 }

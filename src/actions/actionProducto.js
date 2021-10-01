@@ -52,3 +52,24 @@ export const listAsincronica = () => {
         dispatch(list(productos))
     }
 }
+
+//Eliminar
+export const eliminar = (nombre) => {
+    return {
+        type: typesProducto.delete,
+        payload: nombre
+    }
+}
+
+export const deleteAsincrono = (nombre) =>{
+    return async(dispatch) => {
+        const prodCollection = collection(db,"Productos");
+        const q = query(prodCollection,where("nombre","==",nombre))
+        const datos = await getDocs(q);
+        datos.forEach((docu) => {
+            //doc una especie de buscador
+            deleteDoc(doc(db,"Productos",docu.id));
+        })
+        dispatch(eliminar(nombre));
+    }
+}

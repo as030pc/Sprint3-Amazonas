@@ -1,3 +1,8 @@
+body {
+    font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+}
 .crud-container {
    height: 100%;
     background-color:bisque;
@@ -12,4 +17,53 @@
 
 
 
+#footer {
+   
+    position: static;
+    bottom: 0vw;
+    width: 100%;
+    background-color: rgba(36, 47, 62, 1);
+    color:white;
     
+    
+
+}
+
+#login-form {
+    padding: 5% 25% 5% 25%;
+    text-align: center;
+    background-color: rgba(86, 89, 89, 1);
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.google-icon-wrapper {
+    background-color: white;
+    display: flex;
+    padding: 2%;
+    margin:1% 20% 1% 20%;
+    font-size: 20px;
+    justify-content: space-between;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    border-radius: 2%;
+
+}
+
+
+.btn-login {
+    background-color: rgba(243, 209, 132, 1);
+    border: none;
+    
+}
+.btn-login:hover {
+    background-color: rgba(240, 173, 100, 1);
+   
+    
+}
+
+
+

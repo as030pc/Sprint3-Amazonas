@@ -18,6 +18,8 @@ import { loginSincronico } from '../actions/actionLogin';
 import PaginaRegistro from '../pages/PaginaRegistro';
 import PaginaLogin from '../pages/PaginaLogin';
 import DashBoardRouter from './DashBoardRouter';
+import Footer from '../components/Footer';
+import PaginaRegistro2 from '../pages/PaginaRegistro2';
 
 
 const AppRouter3 = () => {
@@ -60,7 +62,7 @@ const AppRouter3 = () => {
                 <PublicRoute
                     exact
                     path="/registro"
-                    component={PaginaRegistro}
+                    component={PaginaRegistro2}
                     isAuthenticated={isLoggedIn}
                 />
                 <PrivateRoute
@@ -69,6 +71,7 @@ const AppRouter3 = () => {
                     isAuthenticated={isLoggedIn}
                 />
             </Switch>
+            <Footer/>
         </Router>
     )
 }
