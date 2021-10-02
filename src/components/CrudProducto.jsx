@@ -1,17 +1,17 @@
-import React, {useEffect}  from 'react';
+import React, {useEffect, useState}  from 'react';
 import { useDispatch } from 'react-redux';
 
 import { useForm } from '../hooks/useForm';
 import { fileUpload } from '../helpers/fileUpload';
-import { agregarAsincrono, agregarProducto, listAsincronica } from '../actions/actionProducto';
+import { agregarAsincrono, agregarProducto, Edit, listAsincronica } from '../actions/actionProducto';
 import { ListarProductos } from './ListarProducto';
-;
+import {activeProduct} from "../actions/actionProducto"
 
 export const CrudProducto = () => {
 
     const dispatch = useDispatch();
 
-    const [values, handleInputChange, reset] = useForm({
+    const [values, handleInputChange, reset, setValues] = useForm({
         nombre: "",
         descripcion:"",
         fecha:"",
@@ -46,10 +46,27 @@ export const CrudProducto = () => {
         dispatch(listAsincronica());
       }, [])
 
+      const [editForm, setEditform] = useState(false)
+      const handleEdit = (producto) => {
+        
+          dispatch(activeProduct(producto.id, producto))
+           setEditform(true) 
+           setValues ({
+               ...producto
+           })
+        }
+        const handlePut = (e)=> {
+            e.preventDefault();
+            dispatch(Edit(values))
+            reset()
+            setEditform(false)
+        }
+
+
     return (
         <div className = "crud-container">
 
-            <form onSubmit={handleRegistro}>
+            <form>
                 <h1> Zona de gestión de productos </h1>
                 <div className="form-group">
                     <div className="form-group col-md-4">
@@ -103,16 +120,33 @@ export const CrudProducto = () => {
                            onClick={handlePictureClick} type="button"> Subir imagen de producto </button>
                     </div>
 
+
+                    
+
                     <div>
-                        <button className="btn btn-primary"
-                            type="submit">Guardar</button>
+
+                        
+                    <div className="d-grid gap-2 mx-auto">
+                            {
+                                !editForm
+                                    ?
+                                    <button
+                                        className="btn btn-dark"
+                                        type="submit" onClick = {handleRegistro}>Enviar</button>
+                                    :
+                                    <button
+                                        className="btn btn-dark"
+                                        type="submit" onClick={handlePut}>Guardar</button>
+
+                            }
+                        </div>
                     </div>
 
                    
                 </div>
             </form>
-
-            <ListarProductos/>
+        
+            <ListarProductos handleEdit = {handleEdit}/>
             
         </div>
     )

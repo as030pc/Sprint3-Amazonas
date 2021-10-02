@@ -25,11 +25,9 @@ const Navbar = ({ history }) => {
                     <a class="navbar-brand" href="/" className = "text-white"> <img alt ="logo Amazonas" src = "https://res.cloudinary.com/dobboq5dt/image/upload/v1632956691/Sprint%203-%20Amazonas/logo-amazon_mlu12o.png" /> </a>
                     <div class="collapse navbar-collapse d-flex  justify-content-between" id="navbarTogglerDemo03">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex  justify-content-between">
+                            
                             <li class="nav-item">
-                                <Link className="flex-sm-fill text-sm-center nav-link text-white " aria-current="page" to="/"> Pagina Principal </Link>
-                            </li>
-                            <li class="nav-item">
-                                <Link className="flex-sm-fill text-sm-center nav-link text-white " aria-current="page" to="/crud"> Crud </Link>
+                                <Link className="flex-sm-fill text-sm-center nav-link text-white " aria-current="page" to="/crud"> Gestion de productos </Link>
                             </li>
                         </ul>
                         <form class="d-flex m-3">
@@ -39,7 +37,7 @@ const Navbar = ({ history }) => {
                            
                         </form>
 
-                        <button className="btn btn-primary me-1 nav-link "><Link className="flex-sm-fill text-white   " aria-current="page" to="/carrito"> Carrito </Link></button>
+                        
                         
                         <button className="btn btn-danger me-2" onClick={handleLogout}> Logout </button>
                     </div>

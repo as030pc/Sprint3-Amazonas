@@ -18,5 +18,8 @@ export const types = {
 export const typesProducto = {
     register: 'register',
     list: 'list',
-    delete: 'delete'
+    delete: 'delete',
+    active: 'active',
+    edit: 'edit'
+
 }

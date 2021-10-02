@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import { deleteAsincrono } from '../actions/actionProducto'
-export const ListarProductos = () => {
+export const ListarProductos = ({handleEdit}) => {
    const {productos} =  useSelector(store => store.producto )
    console.log(productos)
    const dispatch = useDispatch()
+
+
     return (
         <div>
+            <h1> Productos dispobibles en la tienda </h1>
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -33,7 +36,7 @@ export const ListarProductos = () => {
                                         <td><img src={element.imagen} alt="" width="50px" /></td>
  
                                         <td>
-                                        <button className ="btn btn-secondary" 
+                                        <button className ="btn btn-secondary" onClick = {()=>handleEdit(element)} 
                                        >Editar </button>
                                             <button className ="btn btn-danger" onClick = {()=>dispatch(deleteAsincrono(element.nombre))}
                                        >Eliminar</button>

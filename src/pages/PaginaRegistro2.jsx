@@ -1,13 +1,12 @@
 import React from 'react'
 import { Form, Button} from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import { useForm } from '../hooks/useForm';
 import { useDispatch } from 'react-redux';
 import { registerSincronico, registroAsincronico } from '../actions/actionRegister';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 
-import styled from 'styled-components';
+
 
 
 
@@ -29,6 +28,7 @@ const PaginaRegistro2 = () => {
 
         }) ,
         onSubmit:(data) => {
+            
             const {nombre, email, pass1} = data;
             dispatch(registroAsincronico(email, pass1, nombre))
         }
@@ -46,7 +46,6 @@ const PaginaRegistro2 = () => {
                         type="text"
                         placeholder="Enter name"
                         name="nombre"
-
                         onChange = {formik.handleChange}
                     />
                 </Form.Group>

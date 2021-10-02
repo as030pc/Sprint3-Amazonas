@@ -10,7 +10,7 @@ import { PublicRoute } from './PublicRoute'
 import Loading from '../components/Loading';
 
 
-//Permite verificar si el usuario inicio sesion: https://firebase.google.com/docs/auth/web/manage-users?hl=es-419
+
 
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';

@@ -1,6 +1,7 @@
-import { typesProducto } from "../types/types";
-import { addDoc,collection,deleteDoc,getDocs, query,where,doc } from "@firebase/firestore"
+import { types, typesProducto } from "../types/types";
+import { addDoc,collection,deleteDoc,getDocs, query,where,doc, updateDoc } from "@firebase/firestore"
 import {db} from "../firebase/firebaseConfig"
+import Swal from "sweetalert2";
 
 //Accion sincrona
 export const agregarProducto = (producto) => {
@@ -24,6 +25,7 @@ export const agregarAsincrono = (nombre, descripcion, fecha, imagen) => {
         addDoc(collection(db,"Productos"), producto )
         .then(resp=>{
             dispatch(agregarProducto(producto))
+            
         })
         .catch(e=> console.error(e))
     }
@@ -71,5 +73,37 @@ export const deleteAsincrono = (nombre) =>{
             deleteDoc(doc(db,"Productos",docu.id));
         })
         dispatch(eliminar(nombre));
+        dispatch(listAsincronica())
+    }
+}
+
+
+export const activeProduct = (id, producto) => {
+    return {
+        type: typesProducto.active,
+        payload:{
+            id, 
+            ...producto
+        }
+    }
+}
+
+export const Edit = (producto) => {
+
+    return async (dispatch) => {
+        
+        const prodCollection = collection(db,"Productos");
+        const q = query(prodCollection,where("nombre","==", producto.nombre))
+        const datos = await getDocs(q);
+        datos.forEach((docu) => {
+            //doc una especie de buscador
+            updateDoc(doc(db,"Productos",docu.id),{
+                nombre:producto.nombre,
+                descripcion:producto.descripcion,
+                fecha:producto.fecha,
+                imagen:producto.imagen
+            } );
+        })
+        dispatch(listAsincronica())
     }
 }
