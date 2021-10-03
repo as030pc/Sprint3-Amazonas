@@ -29,10 +29,14 @@ const Navbar = ({ history }) => {
                             <li class="nav-item">
                                 <Link className="flex-sm-fill text-sm-center nav-link text-white " aria-current="page" to="/crud"> Gestion de productos </Link>
                             </li>
+
+                            <li class="nav-item">
+                                <Link className="flex-sm-fill text-sm-center nav-link text-white " aria-current="page" to="/mapa"> Acceda a su ubicacion </Link>
+                            </li>
                         </ul>
                         <form class="d-flex m-3">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button class="btn btn-outline-secondary me-2" type="submit">Search</button>
+                            {/* <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                            <button class="btn btn-outline-secondary me-2" type="submit">Search</button> */}
                             <span className = "text-white me-2"> Hola: {name}</span>
                            
                         </form>

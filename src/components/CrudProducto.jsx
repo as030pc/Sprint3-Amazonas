@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { useForm } from '../hooks/useForm';
 import { fileUpload } from '../helpers/fileUpload';
-import { agregarAsincrono, agregarProducto, Edit, listAsincronica } from '../actions/actionProducto';
+import { agregarAsincrono, Edit, listAsincronica } from '../actions/actionProducto';
 import { ListarProductos } from './ListarProducto';
 import {activeProduct} from "../actions/actionProducto"
 
@@ -44,7 +44,7 @@ export const CrudProducto = () => {
 
     useEffect(() => {
         dispatch(listAsincronica());
-      }, [])
+      }, [dispatch])
 
       const [editForm, setEditform] = useState(false)
       const handleEdit = (producto) => {

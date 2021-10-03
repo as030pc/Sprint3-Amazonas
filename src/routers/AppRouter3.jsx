@@ -15,7 +15,7 @@ import Loading from '../components/Loading';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { loginSincronico } from '../actions/actionLogin';
-import PaginaRegistro from '../pages/PaginaRegistro';
+
 import PaginaLogin from '../pages/PaginaLogin';
 import DashBoardRouter from './DashBoardRouter';
 import Footer from '../components/Footer';

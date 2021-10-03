@@ -4,6 +4,7 @@ import { Route, Redirect, Switch } from 'react-router'
 import { CrudProducto } from "../components/CrudProducto"
 import Carrito from '../pages/Carrito'
 import PaginaPrincipal from '../pages/PaginaPrincipal'
+import Mapa from "../pages/Mapa"
 
 const DashBoardRouter = () => {
     return (
@@ -25,6 +26,12 @@ const DashBoardRouter = () => {
                 exact
                 path="/"
                 component={PaginaPrincipal}
+
+            />
+            <Route
+                exact
+                path="/mapa"
+                component={Mapa}
 
             />
             <Redirect to="/" />
