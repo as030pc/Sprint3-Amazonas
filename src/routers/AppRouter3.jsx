@@ -43,7 +43,7 @@ const AppRouter3 = () => {
             }
             setChecking(false)
         })
-    }, [])
+    }, [auth, dispatch])
 
     if (checking) {
         return <Loading />

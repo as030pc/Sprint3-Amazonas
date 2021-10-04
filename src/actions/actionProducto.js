@@ -1,7 +1,7 @@
-import { types, typesProducto } from "../types/types";
+import {  typesProducto } from "../types/types";
 import { addDoc,collection,deleteDoc,getDocs, query,where,doc, updateDoc } from "@firebase/firestore"
 import {db} from "../firebase/firebaseConfig"
-import Swal from "sweetalert2";
+
 
 //Accion sincrona
 export const agregarProducto = (producto) => {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Form, Button} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { registerSincronico, registroAsincronico } from '../actions/actionRegister';
+import { registroAsincronico } from '../actions/actionRegister';
 import { useFormik } from 'formik';
 import * as Yup from 'yup'
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { Table } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
@@ -12,7 +12,7 @@ export const ListarProductos = ({handleEdit}) => {
    useEffect(() => {
        
        dispatch(agregarAsincrono)
-   }, [])
+   }, [dispatch])
 
     return (
         <div>
