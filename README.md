@@ -22,5 +22,5 @@ Amazonas es una aplicación de gestión de ventas, que permite que un usuario pu
 
 
 ## 4. Despliegue de la aplicacion
-- [Netlify]:(https://vibrant-nightingale-fca1b9.netlify.app)
-- [Firebase]:(https://sprint3-as.firebaseapp.com/#/login)
+- [Netlify](https://vibrant-nightingale-fca1b9.netlify.app)
+- [Firebase](https://sprint3-as.firebaseapp.com/#/login)
