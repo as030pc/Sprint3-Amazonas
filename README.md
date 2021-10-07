@@ -4,7 +4,7 @@
 Amazonas es una aplicación de gestión de ventas, que permite que un usuario pueda loguearse con la intencion de poder administrar los productos de una tienda. Con las funcionalidades básicas de un CRUD.
 
 ## 2. Configuración de la aplicacion en tu computador
-  - Descargarga el siguiente repositorio: [as030pc/Amazonas](https://github.com/as030pc/Sprint3-Amazonas)
+  - Descargar el siguiente repositorio: [as030pc/Amazonas](https://github.com/as030pc/Sprint3-Amazonas)
   - Ejecutar el comando npm install o yarn install
   - Ejecutar el comando npm start o yarn start
 
